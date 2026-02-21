@@ -61,11 +61,7 @@ http://localhost:3000
 
 ## Screenshots
 
-Add at least three screenshots here, for example:
-
-* Home page interface
-* Messaging/chat screen
-* Login or verification page
+https://drive.google.com/drive/folders/1sPFp5etfFfzMdeL2QRnt09kBVjs8QUwO?usp=sharin
 
 (Store images inside a `screenshots` folder and link them)
 
@@ -73,7 +69,7 @@ Add at least three screenshots here, for example:
 
 ## Demo Video Link
 
-Add your demo video link here:
+https://drive.google.com/drive/folders/1sPFp5etfFfzMdeL2QRnt09kBVjs8QUwO?usp=sharing
 
 ```
 https://your-demo-video-link.com
