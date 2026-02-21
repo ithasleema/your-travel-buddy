@@ -171,7 +171,8 @@ app.get("/online", (req, res) => {
 });
 
 // ─── Start ─────────────────────────────────────────────────────────────────────
-server.listen(3000, () => {
-    console.log("✅ Server running! Open http://localhost:3000 in your browser");
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`✅ Server running! Open http://localhost:${PORT} in your browser`);
     console.log("⚡ WebSocket (socket.io) messaging is active");
 });
