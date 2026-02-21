@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Travel Buddy Finder 💗</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // 🛡️ Strict Safety Check: If not verified, immediately kick them to the verify page
+    if (localStorage.getItem("travelBuddyVerified") !== "true") {
+      window.location.href = "verify.html";
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>💗 Safe Travel Buddy Finder 🌙</h1>
+    <p class="subtitle">Travel safe. Travel together.</p>
+    <a href="verify.html" class="verify-link">🛡️ Get Verified First</a>
+    <br><br>
+    <button onclick="localStorage.clear(); alert('Memory cleared! You are now unverified.'); location.reload();"
+      style="width: auto; padding: 5px 10px; font-size: 11px; background: #666; border-radius: 4px;">🛠️ Reset
+      Verification (For Testing)</button>
+  </div>
+
+  <!-- FIND BUDDY FORM -->
+  <div class="box">
+    <h2>Find a Travel Buddy</h2>
+    <input id="name" placeholder="Your name" type="text">
+    <input id="start" placeholder="Start location (e.g. T-Nagar)" type="text">
+    <input id="destination" placeholder="Destination (e.g. Airport)" type="text">
+    <input id="time" placeholder="Time (e.g. 9PM)" type="text">
+    <button onclick="addUser()" id="findBtn">🔍 Find Buddy</button>
+    <p id="findStatus" style="color:#d63384;margin-top:10px;font-weight:bold;"></p>
+  </div>
+
+  <!-- MATCHES LIST -->
+  <div id="matchSection" style="display:none;">
+    <h2 style="color:#c2185b;">✨ Matching Buddies Found</h2>
+    <ul id="matches"></ul>
+  </div>
+
+  <!-- CHAT MODAL -->
+  <div id="chatModal" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="chatName">Chat</h3>
+        <button onclick="closeChat()" class="close-btn">✕</button>
+      </div>
+      <p id="contactDisplay" class="contact-info"></p>
+      <div id="messages" class="messages-area"></div>
+      <div class="message-input-row">
+        <input id="messageInput" type="text" placeholder="Type a message..."
+          onkeypress="if(event.key==='Enter') sendMsg()">
+        <button onclick="sendMsg()" class="send-btn">Send 💬</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCKET.IO CLIENT SCRIPT -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
